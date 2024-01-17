@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: UNLICENSED
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.13;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 
@@ -10,6 +10,9 @@ contract BigBank is Ownable {
 
     event Deposit(address indexed account, uint256 amount);
     event Withdrawal(address indexed account, uint256 amount);
+
+     constructor() Ownable(msg.sender){
+     }
 
     modifier minimumDeposit() {
         require(msg.value >= minimumDepositAmount, "Minimum deposit amount not met");
